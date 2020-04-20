@@ -1,13 +1,13 @@
-<mat-toolbar color="primary">
-    <button mat-button class="navigation_button__paddings" [routerLink]="routes.home">Home</button>
+<nav class="navbar navbar-light bg-light">
+    <a class="nav-link" [routerLink]="routes.home">Home</a>
     <div *ngIf="currentUser">
     </div>
     <div class="navigation_spacer"></div>
     <div *ngIf="!currentUser">
-        <button mat-button class="navigation_button__paddings" [routerLink]="routes.login">Log in</button>
-        <button mat-button class="navigation_button__paddings" [routerLink]="routes.registration">Register</button>
+        <a class="nav-link" [routerLink]="routes.login">Log in</a>
+        <a class="nav-link" [routerLink]="routes.registration">Register</a>
     </div>
     <div *ngIf="currentUser">
-        <button mat-button class="navigation_button__paddings">Log out</button>
+        <a class="nav-link">Log out</a>
     </div>
-</mat-toolbar>
+</nav>

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   HomeComponent,
   NotfoundComponent,
+  LoginComponent,
 } from './pages';
 
 export const routes = {
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   },
   { path: routes.home, component: HomeComponent },
   { path: routes.notFound, component: NotfoundComponent },
+  { path: routes.login, component: LoginComponent }
 ]
 
 @NgModule({

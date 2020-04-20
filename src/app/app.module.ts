@@ -1,18 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DevicesComponent } from './pages/devices/devices.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// angular material
+// import {
+//   MatToolbarModule,
+//   MatButtonModule,
+//   MatCardModule,
+//   MatFormFieldModule,
+//   MatInputModule,
+//   MatDividerModule
+// } from '@angular/material';
 
+// pages
 import {
-  MatToolbarModule, MatButtonModule
-} from '@angular/material';
-import { NotfoundComponent } from './pages/notfound/notfound.component';
-import { LoginComponent } from './pages/login/login.component';
+  NotfoundComponent,
+  LoginComponent
+} from './pages';
 
 @NgModule({
   declarations: [
@@ -29,10 +40,17 @@ import { LoginComponent } from './pages/login/login.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+
+    NgbModule
 
     // material modules
-    MatToolbarModule,
-    MatButtonModule
+    // MatToolbarModule,
+    // MatButtonModule,
+    // MatCardModule,
+    // MatFormFieldModule,
+    // MatInputModule,
+    // MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
