@@ -9,21 +9,26 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { HomeComponent } from './pages/home/home.component';
 import { DevicesComponent } from './pages/devices/devices.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // angular material
-// import {
-//   MatToolbarModule,
-//   MatButtonModule,
-//   MatCardModule,
-//   MatFormFieldModule,
-//   MatInputModule,
-//   MatDividerModule
-// } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDividerModule
+} from '@angular/material';
 
 // pages
 import {
   NotfoundComponent,
-  LoginComponent
+  LogInComponent,
+  SignUpComponent
 } from './pages';
+
+import { ApiInterceptorProvider } from './helpers/api.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,25 +39,29 @@ import {
     HomeComponent,
     DevicesComponent,
     NotfoundComponent,
-    LoginComponent
+    LogInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ReactiveFormsModule,
 
-    NgbModule
+    NgbModule,
 
     // material modules
-    // MatToolbarModule,
-    // MatButtonModule,
-    // MatCardModule,
-    // MatFormFieldModule,
-    // MatInputModule,
-    // MatDividerModule
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDividerModule
   ],
-  providers: [],
+  providers: [
+    ApiInterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

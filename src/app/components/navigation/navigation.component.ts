@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { routes as appRoutes } from 'src/app/app-routing.module';
+import { routes as appRoutes } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navigation',

@@ -6,6 +6,17 @@ export const environment = {
   production: false
 };
 
+export const routes = {
+  root: '',
+  home: 'home',
+  devices: 'devices',
+  logIn: 'log-in',
+  signUp: 'sign-up',
+  notFound: '404'
+};
+
+export const apiServerAddress = "http://localhost:9090/"
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

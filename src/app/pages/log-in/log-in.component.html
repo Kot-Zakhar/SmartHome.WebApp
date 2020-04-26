@@ -1,0 +1,35 @@
+<div class="container my-3">
+    <form [formGroup]="logInFormGroup" (ngSubmit)="submit()">
+        <div class="row justify-content-center">
+            <mat-card class="col-md-8">
+                <mat-card-title>Log in</mat-card-title>
+                <mat-card-content>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="John.Doe@example.com" type="email" formControlName="email">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password">
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+                <div class="row justify-content-between no-gutters">
+                    <div class="coll">
+                        <button mat-raised-button type="submit" color="primary">Log in</button>
+                    </div>
+                    <div class="coll">
+                        <button mat-button color="secondary" [routerLink]="['/', routes.signUp]">Sign up</button>
+                    </div>
+                </div>
+                <mat-card-actions>
+                </mat-card-actions>
+
+            </mat-card>
+        </div>
+    </form>
+</div>
+    

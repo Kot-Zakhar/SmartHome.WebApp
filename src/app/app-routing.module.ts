@@ -4,17 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import {
   HomeComponent,
   NotfoundComponent,
-  LoginComponent,
+  LogInComponent,
 } from './pages';
 
-export const routes = {
-  root: '',
-  home: 'home',
-  devices: 'devices',
-  login: 'login',
-  register: 'register',
-  notFound: '404'
-};
+import { routes } from 'src/environments/environment';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 const appRoutes: Routes = [
   {
@@ -24,8 +18,10 @@ const appRoutes: Routes = [
   },
   { path: routes.home, component: HomeComponent },
   { path: routes.notFound, component: NotfoundComponent },
-  { path: routes.login, component: LoginComponent }
-]
+  { path: routes.logIn, component: LogInComponent },
+  { path: routes.signUp, component: SignUpComponent },
+  { path: ':notFoundPath', redirectTo: routes.notFound + '/:notFoundPath' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
