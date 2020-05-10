@@ -1,19 +1,20 @@
 import { Injectable, Injector } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS, HttpResponse } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 import debug from 'debug';
-import { apiServerAddress } from 'src/environments/environment';
+import { apiServerAddress } from '@env/environment';
+import { Device } from '@app/models';
 
-const log = debug('app:ApiInterceptor');
 
 @Injectable()
 export class ApiInterceptor implements HttpInterceptor {
-
+    private log = debug('app:ApiInterceptor');
+    
     constructor(private injector: Injector) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        log(request);
-        if (request.url.indexOf('api/') === 0) {
+        this.log(request);
+        if (request.url.startsWith('api/')) {
             const newRequest = request.clone({url:  apiServerAddress + request.url});
             return next.handle(newRequest);
         }

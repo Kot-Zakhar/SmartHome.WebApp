@@ -5,10 +5,12 @@ import {
   HomeComponent,
   NotfoundComponent,
   LogInComponent,
+  DevicesComponent,
 } from './pages';
 
-import { routes } from 'src/environments/environment';
+import { routes } from '@env/environment';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { AuthGuard } from './helpers';
 
 const appRoutes: Routes = [
   {
@@ -18,9 +20,13 @@ const appRoutes: Routes = [
   },
   { path: routes.home, component: HomeComponent },
   { path: routes.notFound, component: NotfoundComponent },
+  
   { path: routes.logIn, component: LogInComponent },
   { path: routes.signUp, component: SignUpComponent },
-  { path: ':notFoundPath', redirectTo: routes.notFound + '/:notFoundPath' }
+
+  { path: routes.devices, component: DevicesComponent, canActivate: [ AuthGuard ] },
+  
+  { path: ':notFoundPath', redirectTo: routes.notFound + '/:notFoundPath' },
 ];
 
 @NgModule({

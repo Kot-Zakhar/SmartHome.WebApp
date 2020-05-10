@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import debug from 'debug';
+import { DeviceService } from '@app/services/device.service';
 
 @Component({
   selector: 'app-devices',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./devices.component.css']
 })
 export class DevicesComponent implements OnInit {
+  private log = debug("app:DevicesComponent");
+  constructor(
+    private deviceService: DeviceService
+  ) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  async ngOnInit() {
+    this.deviceService.getAll().subscribe(devices => {
+      this.log(JSON.stringify(devices, null, 2));
+    });
   }
 
 }

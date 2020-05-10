@@ -25,9 +25,21 @@ import {
   NotfoundComponent,
   LogInComponent,
   SignUpComponent
-} from './pages';
+} from '@app/pages';
 
-import { ApiInterceptorProvider } from './helpers/api.interceptor';
+// services
+import {
+  AuthenticationService
+} from '@app/services';
+
+// helpers
+import {
+  JwtInterceptorProvider,
+  ErrorInterceptorProvider,
+  ApiInterceptorProvider
+} from './helpers';
+
+import {  } from './helpers/api.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -60,6 +72,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDividerModule
   ],
   providers: [
+    JwtInterceptorProvider,
+    ErrorInterceptorProvider,
     ApiInterceptorProvider
   ],
   bootstrap: [AppComponent]

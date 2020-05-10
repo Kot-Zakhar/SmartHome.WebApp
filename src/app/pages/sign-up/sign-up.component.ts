@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import debug from 'debug';
 import { Router } from '@angular/router';
-import { routes } from 'src/environments/environment';
+import { routes } from '@env/environment';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,7 +11,7 @@ import { routes } from 'src/environments/environment';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  private log = debug('SignUpComponent');
+  private log = debug('app:SignUpComponent');
   
   constructor(
     private http: HttpClient,
